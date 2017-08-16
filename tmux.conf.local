@@ -1,0 +1,27 @@
+smux_color_status_fg="default"
+smux_color_status_bg="default"
+smux_color_status_attr="none"
+
+smux_window_status_fg='default'
+smux_window_status_bg='default'
+smux_window_status_attr='none'
+smux_window_status_format='#I #W'
+
+smux_window_status_current_fg='black'
+smux_window_status_current_bg='blue'
+smux_window_status_current_attr='bold'
+smux_window_status_current_format=' #I #W '
+
+smux_pane_border='colour8'
+smux_pane_border_bg='default'
+smux_pane_indicator='blue'
+
+smux_pane_active_border='blue'
+smux_pane_active_border_bg='default'
+smux_pane_active_indicator='blue'
+
+smux_message_fg='black'
+smux_message_bg='yellow'
+smux_message_attr='bold'
+
+smux_clock_mode_colour='blue'
