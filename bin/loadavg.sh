@@ -2,7 +2,7 @@
 
 smux_loadavg_threshold=(0 1.6 2.0 2.7)
 smux_loadavg_colors=("colour8" "green" "yellow" "red")
-
+smux_threshold="0.1"
 smux_loadavg=($(sysctl -q -n vm.loadavg | cut -d' ' -f2 -f3 -f4))
 
 for i in "${!smux_loadavg_threshold[@]}"; do
@@ -12,9 +12,9 @@ for i in "${!smux_loadavg_threshold[@]}"; do
 done
 #smux_loadavg_glyph="◆"
 smux_loadavg_glyph=""
-if (( $(echo "${smux_loadavg[2]} < (${smux_loadavg[1]} - 0.1 )" | bc -l) )); then
+if (( $(echo "${smux_loadavg[0]} > (${smux_loadavg[1]} + $smux_threshold )" | bc -l) )); then
   smux_loadavg_glyph="▲"
-elif (( $(echo "${smux_loadavg[2]} > (${smux_loadavg[1]} + 0.1 )" | bc -l) )); then
+elif (( $(echo "${smux_loadavg[0]} < (${smux_loadavg[1]} - $smux_threshold )" | bc -l) )); then
   smux_loadavg_glyph="▼"
 fi
 
